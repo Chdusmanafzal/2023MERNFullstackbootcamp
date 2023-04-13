@@ -1,0 +1,153 @@
+<html>
+
+<head>
+    <title>
+        simple calculator
+    </title>
+   
+   <style>
+   .calculator {
+    border-radius: 5px;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15), 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    margin-block-start: 32px;
+    max-inline-size: 350px;
+    overflow: hidden;
+  }
+  .calculator_output {
+    background: hsl(203, 65%, 49%);
+    color: hsl(255, 100%, 100%);
+    font-size: 24px;
+    padding-block-start: 12px;
+    padding-block-end: 12px;
+    padding-inline-end: 18px;
+    text-align: end;
+  }
+
+  #result {
+    background: hsl(210, 18%, 93%);
+    color: hsl(0, 0%, 0%);
+    font-size: 24px;
+    padding-block-start: 12px;
+    padding-block-end: 12px;
+    padding-inline-end: 18px;
+    text-align: end;
+    border-radius: 5px;
+  }
+  .calculator_keys_grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1px;
+    background: hsl(207, 19%, 61%);
+  }
+  .calculator_key {
+    background: hsl(210, 25%, 95%);
+    border: none;
+    padding-block-start: 1rem;
+    padding-block-end: 1rem;
+    padding-inline-end: 1.25rem;
+    padding-inline-start: 1.25rem;
+    font-size: 1.5rem;
+  }
+  .calculator_key:active,
+  .calculator_key:focus {
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3) inset;
+    outline: none;
+  }
+
+  .calculator_key_enter {
+    grid-column: 4 / 5;
+    grid-row: 2 / span 4;
+    background: hsl(357, 100%, 72%);
+  }
+    </style>
+</head>
+
+<body>
+    <div class="calculator">
+        <div class="calculator_output">
+        <input type="text" id="result" placeholder="0">
+        </div>
+        <div class="calculator_keys_grid">
+          <button class="calculator_key" onclick='myfunction_operate("+")'>+</button>
+          <button class="calculator_key" onclick='myfunction_operate("-")'>-</button>
+          <button class="calculator_key" onclick='myfunction_operate("*")'>&times;</button>
+          <button class="calculator_key" onclick='myfunction_operate("/")'>÷</button>
+
+          <button class="calculator_key" onclick='myfunction("7")'>7</button>
+          <button class="calculator_key" onclick='myfunction("8")'>8</button>
+          <button class="calculator_key" onclick='myfunction("9")'>9</button>
+          
+          <button class="calculator_key" onclick='myfunction("4")'>4</button>
+          <button class="calculator_key" onclick='myfunction("5")'>5</button>
+          <button class="calculator_key" onclick='myfunction("6")'>6</button>
+
+          <button class="calculator_key" onclick='myfunction("1")'>1</button>
+          <button class="calculator_key" onclick='myfunction("2")'>2</button>
+          <button class="calculator_key" onclick='myfunction("3")'>3</button>
+          
+          <button class="calculator_key" onclick='myfunction(".")'>.</button>
+          <button class="calculator_key" onclick='myfunction("0")'>0</button>
+          <button class="calculator_key" onclick='clearall()'>AC</button>
+          
+          
+          <button class="calculator_key calculator_key_enter" onclick="finalresult()">=</button>
+        </div>
+      </div>
+
+      <script>
+        function myfunction(a){
+        document.getElementById('result').value += a ;
+
+      }
+
+      function clearall(){
+      document.getElementById('result').value="";
+
+      }
+
+      function finalresult(){
+      const str=eval(document.getElementById('result').value);
+      if(str.length!=0 )
+       document.getElementById('result').value=str;
+      
+      }
+
+      function myfunction_operate(o) {
+      let oValue = document.getElementById('result').value;
+      
+      if(oValue.length==0 ){
+        if(o=='-')
+        document.getElementById('result').value += o ;
+        else         document.getElementById('result').value = "" ;
+
+      }
+      else if(oValue.length==1 && oValue[oValue.length-1]=='-')
+      {
+        document.getElementById('result').value='-';
+
+      }
+      else if ((o=='+' && oValue[oValue.length-1]=='+') || ( o=='-' && oValue[oValue.length-1]=='-') 
+      || ( o=='/' && oValue[oValue.length-1]=='/') || ( o=='*' && oValue[oValue.length-1]=='*')) {
+        document.getElementById('result').value =oValue;
+
+      }
+      else if ((o=='+' && oValue[oValue.length-1]=='-') || (o=='+' && oValue[oValue.length-1]=='*')
+      || (o=='+' && oValue[oValue.length-1]=='/') || (o=='-' && oValue[oValue.length-1]=='+')
+      || (o=='-' && oValue[oValue.length-1]=='*') || (o=='-' && oValue[oValue.length-1]=='/')
+      || (o=='*' && oValue[oValue.length-1]=='+') || (o=='*' && oValue[oValue.length-1]=='-')
+      || (o=='*' && oValue[oValue.length-1]=='/') || (o=='/' && oValue[oValue.length-1]=='-')
+      || (o=='/' && oValue[oValue.length-1]=='+') || (o=='/' && oValue[oValue.length-1]=='*')
+      ) {
+        let str2 = oValue.slice(0,-1);
+        str2+=o;
+        document.getElementById('result').value=str2;
+      }
+    
+
+    else document.getElementById('result').value += o ;
+      }
+       </script>
+</body>
+</html>

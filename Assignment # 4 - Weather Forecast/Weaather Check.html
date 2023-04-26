@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <header>
+    <h1>
+        Weather Forecast
+    </h1>
+    <h3> 
+      Select your Country Name and City Name
+    </h3>
+
+    <style>
+      h1 {
+        text-align: center;
+        padding: 15px;
+        margin-bottom: -15px;
+      }
+
+      h3 {
+        text-align: center;
+        padding: 15px;
+      }
+      
+      h2 {
+        text-align: center;
+        padding: 15px ;
+     
+      }
+
+      div{
+      text-align: center;
+      }
+
+      #option1{
+        padding:15px 50px;
+        border-radius: 10px;
+        background-color: rgb(241, 241, 241);
+      }
+
+      #cities{
+        padding:15px 40px;
+        border-radius: 10px;
+        background-color: rgb(241, 241, 241);
+      }
+      
+    </style>
+  </header>
+
+  <body>
+
+    <div>
+      <select id="option1" name="option1" autofocus required onchange="populate(this.id,'cities')">
+        <option value="" hidden>Choose Country</option>
+          <div>
+            <option value="pakistan">Pakistan</option>
+            <option value="england">England</option>
+            <option value="India">India</option>
+          </div>    
+      </select>   
+      
+      <select id="cities" name="cities" onchange="selectCity(cities.value)">
+        <option value="" hidden>Choose City</option>
+      </select>  
+
+      <div id="result">
+      </div>
+    </div>
+
+    
+  <script>
+
+  function populate(countries,cities){
+    var countries = document.getElementById(countries);
+    var cities = document.getElementById(cities);
+
+    if (countries.value == "england") {
+
+      var cityOptionArray = ["|","London|London","Glasgow|Glasgow","Edinburgh|Edinburgh"];
+    }
+
+    else if (countries.value == "pakistan") {
+
+      var cityOptionArray = ["|","Karachi|Karachi","Lahore|Lahore","Islamabad|Islamabad"];
+    }
+
+    else {
+
+      var cityOptionArray = ["|","Mumbai|Mumbai","Delhi|Delhi","Goa|Goa"];
+    }
+ 
+
+
+          cities.innerHTML="";
+    for (var cityOption in cityOptionArray) {
+      var pair = cityOptionArray[cityOption].split("|");
+      var newCityOption = document.createElement("option");
+      newCityOption.value = pair[0];
+      newCityOption.innerHTML = pair[1];
+      cities.options.add(newCityOption);
+    }
+  }  
+
+  function selectCity (props) {
+    fetch("https://api.openweathermap.org/data/2.5/weather?q="+props+"&appid=cd0aab3ba61e4af27742fa6aa6fd4cdd").then((response)=>response.json()).then((data)=>{
+      const cel=data.main.temp-273.15;
+      const str="<h2> Weather of "+props+" is: "+parseInt(cel)+"&#x2103;</h2>";
+      console.log(str);
+      document.getElementById("result").innerHTML=str;
+
+    }).catch((error)=>console.log(error));
+
+  }
+
+  </script>
+  </body>
+</html>

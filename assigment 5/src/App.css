@@ -1,0 +1,127 @@
+.table-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 800px;
+  margin: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+  background-color: #008CBA;
+  color: #fff;
+}
+
+thead th {
+  text-align: left;
+  padding: 10px;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tbody td {
+  text-align: left;
+  padding: 10px;
+}
+
+.input-data {
+  padding: 20px;
+  margin: 20px;
+  width: 100%;
+  max-width: 800px;
+  border: 1px solid #c1c1c1;
+  line-height: 1.5;
+  border-radius: 5px;
+  font-size: 18px;
+  
+ 
+}
+
+.Form-data {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+.button {
+  background-color: #008CBA;
+  border-radius: 5px ;
+  color: white;
+  margin: 10px;
+  padding: 15px 22px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+}
+
+#id {
+  margin: 10px;
+  width: 100%;
+  max-width: 600px;
+  padding: 15px 22px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+
+}
+#name {
+  margin: 10px;
+  width: 100%;
+  max-width: 600px;
+  padding: 15px 22px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+
+}
+
+#age {
+  margin: 10px;
+  width: 100%;
+  max-width: 600px;
+  padding: 15px 22px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+
+}
+
+#gender {
+  margin: 10px;
+  width: 100%;
+  max-width: 600px;
+  padding: 15px 22px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+
+}
+
+#occupation {
+  margin: 10px;
+  width: 100%;
+  max-width: 600px;
+  padding: 15px 22px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+
+}
+label {
+  margin: 10px;
+  width: 100%;
+  max-width: 600px;
+  padding: 15px 22px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+}

@@ -1,0 +1,49 @@
+.App {
+  text-align: center;
+  
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+h3 {
+  display: block;
+}
+
+.selectcountry{
+  width: 25%;
+  height: 60px;
+  text-align: center;
+  margin: 0;
+  margin-top: 10px;
+  margin-left: 10px;
+  border-radius: 10px;
+  border: 1px solid rgb(9, 108, 148);
+  color:rgb(33, 9, 167);
+  background-color: rgba(117, 195, 226, 0.664);
+}
+
+.selectcity{
+  width: 25%;
+  height: 60px;
+  justify-content: center;
+  margin: 0;
+  text-align: center;
+  margin-top: 20px;
+  margin-left: 10px;
+  border-radius: 10px;
+  border: 1px solid rgb(9, 108, 148);
+  color:rgb(33, 9, 167);
+  background-color: rgba(117, 195, 226, 0.664);
+}
+.result{
+  margin: 30px ;
+  color: #0b3891;
+}
